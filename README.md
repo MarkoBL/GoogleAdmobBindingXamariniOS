@@ -7,9 +7,9 @@ Current AdMob Version:
     
     6.12.0.
 
-Currently included architextures: 
+Currently included architectures: 
     
-    armv7, armv7s, arm64, i386, x86_64.
+    armv7 armv7s arm64 i386 x86_64
 
 
 How to use

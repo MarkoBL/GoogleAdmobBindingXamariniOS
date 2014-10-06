@@ -63,20 +63,20 @@ namespace GoogleAdMobAds
 		GADAdSize GADAdSizeFullWidthLandscapeWithHeight (float height);
 	}
 	#endregion
-	
-	[BaseType (typeof (NSObject))]
-	interface GADAdMobExtras : GADAdNetworkExtras
-	{
-		[Export ("additionalParameters", ArgumentSemantic.Copy)]
-		NSDictionary AdditionalParameters { get; set; }
-	}
-	
+
 	[BaseType (typeof (NSObject))]
 	[Model]
 	[Protocol]
 	interface GADAdNetworkExtras
 	{
-		
+
+	}
+
+	[BaseType (typeof (GADAdNetworkExtras))]
+	interface GADAdMobExtras : GADAdNetworkExtras
+	{
+		[Export ("additionalParameters", ArgumentSemantic.Copy)]
+		NSDictionary AdditionalParameters { get; set; }
 	}
 	
 	[BaseType (typeof (UIView),
