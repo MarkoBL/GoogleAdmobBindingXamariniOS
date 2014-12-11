@@ -5,11 +5,13 @@ A iOS Binding Project for Google Admob, with Unified API support.
 
 Current AdMob Version: 
     
-    6.12.0.
+    6.12.2.
 
 Currently included architectures: 
     
     armv7 armv7s arm64 i386 x86_64
+
+Homepage: https://markobl.com/admob-xamarin-ios-binding/
 
 
 How to use
