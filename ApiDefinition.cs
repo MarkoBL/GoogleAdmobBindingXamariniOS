@@ -113,9 +113,6 @@ namespace GoogleAdMobAds
 		[Export ("loadRequest:")]
 		void LoadRequest( [NullAllowed] GADRequest request);
 		
-		[Export ("hasAutoRefreshed")]
-		bool HasAutoRefreshed { get; }
-		
 		[Export ("adNetworkClassName")]
 		string AdNetworkClassName { get; }
 	}
@@ -215,9 +212,6 @@ namespace GoogleAdMobAds
 		[Export ("removeAdNetworkExtrasFor:")]
 		void RemoveAdNetworkExtrasFor (Class clazz);
 		
-		[Export ("mediationExtras", ArgumentSemantic.Copy)]
-		NSDictionary MediationExtras { get; set; }
-		
 		[Static, Export ("sdkVersion")]
 		string SdkVersion { get; }
 		
@@ -229,9 +223,6 @@ namespace GoogleAdMobAds
 		
 		[Export ("birthday", ArgumentSemantic.Retain)]
 		NSDate Birthday { get; set; } 
-		
-		[Export ("setBirthdayWithMonth:day:year:")]
-		void SetBirthday (int m, int d, int y);
 		
 		[Export ("setLocationWithLatitude:longitude:accuracy:")]
 		void SetLocationWithLatitude (float latitude, float longitude, float accuracyInMeters);
@@ -245,17 +236,11 @@ namespace GoogleAdMobAds
 		[Export ("keywords", ArgumentSemantic.Retain), NullAllowed]
 		string [] keywords { get; set; }
 		
-		[Export ("addKeyword:")]
-		void AddKeyword (string keyword);
-		
-		#region "Deprecated GAdRequest Methods"		
-		[Export ("additionalParameters", ArgumentSemantic.Copy), Obsolete ("Please use void RegisterAdNetworkExtras(GADAdNetworkExtras extras) instead")]
-		NSDictionary AdditionalParameters { get; set; }
-		
-		[Export ("testing", ArgumentSemantic.Assign), Obsolete ("Please set TestDevices instead.")]
-		bool Testing { [Bind("isTesting")] get; set; }
-		#endregion
-		
+		[Export ("requestAgent", ArgumentSemantic.Copy)]
+		string RequestAgent { get; set; }
+
+		[Export ("publisherProvidedID", ArgumentSemantic.Copy)]
+		string PublisherProvidedID { get; set; }
 	}
 	
 	[BaseType (typeof (NSError))]
@@ -384,8 +369,6 @@ namespace GoogleAdMobAds
 	[BaseType (typeof (GADAdMobExtras))]
 	interface DFPExtras 
 	{
-		[Export ("publisherProvidedID", ArgumentSemantic.Copy)]
-		string PublisherProvidedID { get; set; }
 	}
 	
 	[BaseType (typeof (GADInterstitial),
